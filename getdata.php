@@ -30,9 +30,12 @@ function getAttributeData($id = NULL){
 	return $result;
 }
 
-$codigo = getAttributeData(8);
-$linea = getAttributeData(2);
-$formato = getAttributeData(6);
-$editorial = getAttributeData(3);
-$categoria = getAttributeData(9);
-$autores = getAttributeData(7);
+function addTerm($id, $data){
+
+	global $woocommerce;
+
+	$result = $woocommerce->post('products/attributes/'.$id.'/terms', $data);
+
+	return $result;
+	
+}

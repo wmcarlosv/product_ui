@@ -11,4 +11,17 @@ $(document).ready(function(){
 
 	});
 
+	$(".add_attribute").click(function(){
+
+		var title = $(this).attr("data-title");
+		var id = $(this).attr("data-attribute-term-id");
+
+		$("#attribute_id").val(id);
+
+		$(".modal-title").text(title);
+
+		$("#myModal").modal();
+
+	});
+
 });

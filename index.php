@@ -1,5 +1,14 @@
 <?php
+
 	include 'getdata.php';
+
+	$codigo = getAttributeData(8);
+	$linea = getAttributeData(2);
+	$formato = getAttributeData(6);
+	$editorial = getAttributeData(3);
+	$categoria = getAttributeData(9);
+	$autores = getAttributeData(7);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,31 +62,76 @@
 
 							<tr <?php print $clone_class; ?>>
 								<td><input type="text" name="isbn[]" style="width:110px;" class="form-control"></td>
-								<td><select class="form-control" style="width:100px;" name="codigo[]">
-					      			<option>-</option>
-					      			<?php print $codigo; ?>
-					      		</select></td>
+								<td>
+									<div class="input-group">
+										<select class="form-control" style="width:100px;" name="codigo[]">
+							      			<option>-</option>
+							      			<?php print $codigo; ?>
+						      			</select>
+						      			<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Codigo" data-attribute-term-id="8" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+					      			</div>
+					      		</td>
 					      		<td><textarea name="titulo[]" class="form-control"></textarea></td>
 					      		<td><textarea name="descripcion[]" class="form-control"></textarea></td>
 					      		<td><input type="text" style="width:70px;" name="precio[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="precio_con_descuento[]" class="form-control"></td>
-					      		<td><select class="form-control" name="linea[]">
-					      			<option>-</option>
-					      			<?php print $linea; ?>
-					      		</select></td>
-					      		<td><select class="form-control" style="width:100px;" name="formato[]">
-					      			<option>-</option>
-					      			<?php print $formato; ?>
-					      		</select></td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control" style="width:120px;" name="linea[]">
+							      			<option>-</option>
+							      			<?php print $linea; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control" style="width:100px;" name="formato[]">
+							      			<option>-</option>
+							      			<?php print $formato; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Formato" data-attribute-term-id="6" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
 					      		<td><input type="text" name="paginas[]" style="width:70px;" class="form-control"></td>
-					      		<td><select class="form-control" name="editorial[]">
-					      			<option>-</option>
-					      			<?php print $editorial; ?>
-					      		</select></td>
-					      		<td><select class="form-control" name="categoria[]">
-					      			<option>-</option>
-					      			<?php print $categoria; ?>
-					      		</select></td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control" name="editorial[]">
+							      			<option>-</option>
+							      			<?php print $editorial; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Editorial" data-attribute-term-id="3" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control" name="categoria[]">
+							      			<option>-</option>
+							      			<?php print $categoria; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
 					      		<td><input type="text" name="peso[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="ancho[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="alto[]" style="width:70px;" class="form-control"></td>
@@ -86,9 +140,16 @@
 					      		<td><input type="text" style="width:80px;" name="stock_actual[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
 					      		<td>
-					      			<select class="form-control js-example-tokenizer" name="autores[]" multiple="multiple">
-									 <?php print $autores; ?>
-									</select>
+					      			<div class="input-group">
+						      			<select class="form-control js-example-tokenizer" name="autores[]" multiple="multiple">
+										 <?php print $autores; ?>
+										</select>
+										<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Autor" data-attribute-term-id="7" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+									</div>
 					      		</td>
 							</tr>
 						<?php } ?>																							
@@ -99,6 +160,31 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Modal Header</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="form-group">
+	        	<label for="name">Nombre: </label>
+	        	<input type="text" id="name" class="form-control" />
+	        	<input type="hidden" id="attribute_id" />
+	        </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default">Guardar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!--End Modal-->
+
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/select2-4.0.6-rc.1/dist/js/select2.min.js"></script>
