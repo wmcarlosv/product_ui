@@ -1,0 +1,7 @@
+body{
+	font-size:10px !important;
+}
+
+.table tbody tr td input.form-control, .table tbody tr td textarea.form-control, .table tbody tr td select.form-control{
+	width:200px;
+}
