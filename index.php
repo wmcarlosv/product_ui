@@ -24,7 +24,7 @@
 			<div class="col-lg-12">
 				<h1>Carga de Productos</h1>
 				<hr />
-				<button type="button" id="add_line" class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Agregar Linea de Producto</button>
+				<button type="button" id="add_line" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar Linea de Producto</button>
 				<br />
 				<br />
 				<table class="table table-bordered table-striped">
