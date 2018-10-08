@@ -64,12 +64,12 @@
 								<td><input type="text" name="isbn[]" style="width:110px;" class="form-control"></td>
 								<td>
 									<div class="input-group">
-										<select class="form-control" style="width:100px;" name="codigo[]">
+										<select class="form-control list_codigos" style="width:100px;" name="codigo[]">
 							      			<option>-</option>
 							      			<?php print $codigo; ?>
 						      			</select>
 						      			<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Codigo" data-attribute-term-id="8" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_codigos" data-title="Registrar Nuevo Codigo" data-attribute-term-id="8" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -81,12 +81,12 @@
 					      		<td><input type="text" style="width:80px;" name="precio_con_descuento[]" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control" style="width:120px;" name="linea[]">
+						      			<select class="form-control list_lineas" style="width:120px;" name="linea[]">
 							      			<option>-</option>
 							      			<?php print $linea; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_lineas" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -94,12 +94,12 @@
 					      		</td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control" style="width:100px;" name="formato[]">
+						      			<select class="form-control list_formatos" style="width:100px;" name="formato[]">
 							      			<option>-</option>
 							      			<?php print $formato; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Formato" data-attribute-term-id="6" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_formatos" data-title="Registrar Nuevo Formato" data-attribute-term-id="6" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -108,12 +108,12 @@
 					      		<td><input type="text" name="paginas[]" style="width:70px;" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control" name="editorial[]">
+						      			<select class="form-control list_editoriales" name="editorial[]">
 							      			<option>-</option>
 							      			<?php print $editorial; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Editorial" data-attribute-term-id="3" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_editoriales" data-title="Registrar Nueva Editorial" data-attribute-term-id="3" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -121,12 +121,12 @@
 					      		</td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control" name="categoria[]">
+						      			<select class="form-control list_categorias" name="categoria[]">
 							      			<option>-</option>
 							      			<?php print $categoria; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_categorias" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -141,11 +141,11 @@
 					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control js-example-tokenizer" name="autores[]" multiple="multiple">
+						      			<select class="form-control js-example-tokenizer list_autores" name="autores[]" multiple="multiple">
 										 <?php print $autores; ?>
 										</select>
 										<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-title="Registrar Nuevo Autor" data-attribute-term-id="7" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_autores" data-title="Registrar Nuevo Autor" data-attribute-term-id="7" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
@@ -175,10 +175,11 @@
 	        	<label for="name">Nombre: </label>
 	        	<input type="text" id="name" class="form-control" />
 	        	<input type="hidden" id="attribute_id" />
+	        	<input type="hidden" id="select_class" />
 	        </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default">Guardar</button>
+	        <button type="button" class="btn btn-success save_term">Guardar</button>
 	      </div>
 	    </div>
 	  </div>
@@ -188,6 +189,7 @@
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/select2-4.0.6-rc.1/dist/js/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootbox.min.js"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

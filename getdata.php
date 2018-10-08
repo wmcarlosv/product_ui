@@ -29,13 +29,3 @@ function getAttributeData($id = NULL){
 
 	return $result;
 }
-
-function addTerm($id, $data){
-
-	global $woocommerce;
-
-	$result = $woocommerce->post('products/attributes/'.$id.'/terms', $data);
-
-	return $result;
-	
-}
