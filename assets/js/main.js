@@ -50,4 +50,24 @@ $(document).ready(function(){
 		});
 	});
 
+
+
+
+	$("#add_products").click(function(){
+
+		waitingDialog.show('Registrado Productos...');
+
+		$.post('add_elements.php',$('#form_product').serialize(),function( response ){
+
+			console.log( response );
+
+			waitingDialog.hide();
+			bootbox.alert("<h4>Productos Registrados con Exito!!</h4>");
+
+		});
+
+	});
+
+
+
 });

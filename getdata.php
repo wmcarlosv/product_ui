@@ -24,7 +24,7 @@ function getAttributeData($id = NULL){
 	$data = $woocommerce->get('products/attributes/'.$id.'/terms');
 	$result = "";
 	for($i = 0; $i < count($data); $i++){
-		$result .= '<option value="'.$data[$i]->id.'">'.$data[$i]->name.'</option>';
+		$result .= '<option value="'.$data[$i]->name.'">'.$data[$i]->name.'</option>';
 	}
 
 	return $result;

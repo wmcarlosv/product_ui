@@ -50,6 +50,7 @@
 						<th>Autores</th>
 					</thead>
 					<tbody id="load_lines">
+						<form id="form_product">
 						<?php 
 							$clone_class = "";
 							for($i = 0; $i < 5; $i++){ 
@@ -141,7 +142,7 @@
 					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control js-example-tokenizer list_autores" name="autores[]" multiple="multiple">
+						      			<select class="form-control js-example-tokenizer list_autores" name="autores[][]" multiple="multiple">
 										 <?php print $autores; ?>
 										</select>
 										<div class="input-group-btn">
@@ -152,11 +153,14 @@
 									</div>
 					      		</td>
 							</tr>
-						<?php } ?>																							
+						<?php } ?>	
+
 					</tbody>
 				</table>
 			<br />
+			<input type="hidden" name="operation" value="add_product" />
 			<button type="button" id="add_products" class="btn btn-success">Guardar</button>
+			</form>
 			</div>
 		</div>
 	</div>
@@ -190,6 +194,7 @@
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="assets/select2-4.0.6-rc.1/dist/js/select2.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootbox.min.js"></script>
+	<script type="text/javascript" src="assets/js/preload.js"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>
