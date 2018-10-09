@@ -59,6 +59,7 @@ switch ($operation) {
 			$ancho = $_POST['ancho'];
 			$alto = $_POST['alto'];
 			$autores = $_POST['autores'];
+			$idiomas = $_POST['idioma'];
 
 			$data = [
 				'name' => $name[$i],
@@ -67,6 +68,8 @@ switch ($operation) {
 				'description' => $description[$i],
 				'status' => 'publish',
 				'weight' => $peso[$i],
+				'price' => $price[$i],
+				'regular_price' => $regular_price[$i],
 				'dimensions' => array(
 					"length" => $espesor[$i],
 				    "width" => $ancho[$i],
@@ -75,34 +78,47 @@ switch ($operation) {
 				'attributes' => array(
 					array(
 						'name' => 'codigo',
+						'visible' => true,
 						'options' => array($codigo[$i])
 					),
 					array(
 						'name' => 'linea',
+						'visible' => true,
 						'options' => array($linea[$i])
 					),
 					array(
 						'name' => 'formato',
+						'visible' => true,
 						'options' => array($formato[$i])
 					),
 					array(
 						'name' => 'editorial',
+						'visible' => true,
 						'options' => array($editorial[$i])
 					),
 					array(
 						'name' => 'categoria',
+						'visible' => true,
 						'options' => array($categoria[$i])
 					),
 					array(
 						'name' => 'isbn',
+						'visible' => true,
 						'options' => array($isbn[$i])
 					),
 					array(
 						'name' => 'paginas',
+						'visible' => true,
 						'options' => array($paginas[$i])
 					),
 					array(
+						'name' => 'idioma',
+						'visible' => true,
+						'options' => array($idiomas[$i])
+					),
+					array(
 						'name' => 'autores',
+						'visible' => true,
 						'options' => $autores[$i]
 					)
 				)
@@ -116,4 +132,3 @@ switch ($operation) {
 	break;
 
 }
-

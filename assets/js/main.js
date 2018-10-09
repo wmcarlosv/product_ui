@@ -62,7 +62,11 @@ $(document).ready(function(){
 			console.log( response );
 
 			waitingDialog.hide();
+			
 			bootbox.alert("<h4>Productos Registrados con Exito!!</h4>");
+
+			$("select, input").value("");
+			$("textarea").text("");
 
 		});
 

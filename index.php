@@ -1,14 +1,13 @@
 <?php
 
 	include 'getdata.php';
-
 	$codigo = getAttributeData(8);
 	$linea = getAttributeData(2);
 	$formato = getAttributeData(6);
 	$editorial = getAttributeData(3);
 	$categoria = getAttributeData(9);
 	$autores = getAttributeData(7);
-
+	$idiomas = getAttributeData(5);
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,84 +28,53 @@
 				<br />
 				<table class="table table-bordered table-striped">
 					<thead>
-						<th>ISBN</th>
-						<th>Codigo</th>
-						<th>Titulo</th>
-						<th>Descripcion</th>
-						<th>Precio</th>
-						<th>P. con Descuento</th>
+						<th>Categoria</th>
+						<th>Editorial</th>
+						<th>Idioma</th>
 						<th>Linea</th>
+						<th>ISBN</th>
+						<th>Titulo</th>
 						<th>Formato</th>
 						<th>Paginas</th>
-						<th>Editorial</th>
-						<th>Categoria</th>
+						<th>Descripcion</th>
+						<th>Precio</th>
+						<th>Precio Rebajado</th>
+						<th>Stock Actual</th>
+						<th>Stock Deseado</th>
+						<th>Codigo</th>
 						<th>Peso</th>
 						<th>Ancho</th>
 						<th>Alto</th>
 						<th>Espesor</th>
 						<th>Imagen</th>
-						<th>Stock Actual</th>
-						<th>Stock Requerido</th>
 						<th>Autores</th>
 					</thead>
 					<tbody id="load_lines">
 						<form id="form_product">
 						<?php 
 							$clone_class = "";
-							for($i = 0; $i < 5; $i++){ 
+							for($i = 0; $i < 10; $i++){ 
 
-							if($i == 4){
+							if($i == 9){
 								$clone_class = "class='for-clone'";
 							}
 
 							?>
 
 							<tr <?php print $clone_class; ?>>
-								<td><input type="text" name="isbn[]" style="width:110px;" class="form-control"></td>
-								<td>
-									<div class="input-group">
-										<select class="form-control list_codigos" style="width:100px;" name="codigo[]">
-							      			<option>-</option>
-							      			<?php print $codigo; ?>
-						      			</select>
-						      			<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-select-class="list_codigos" data-title="Registrar Nuevo Codigo" data-attribute-term-id="8" type="button">
-									        <i class="glyphicon glyphicon-plus"></i>
-									      </button>
-									    </div>
-					      			</div>
-					      		</td>
-					      		<td><textarea name="titulo[]" class="form-control"></textarea></td>
-					      		<td><textarea name="descripcion[]" class="form-control"></textarea></td>
-					      		<td><input type="text" style="width:70px;" name="precio[]" class="form-control"></td>
-					      		<td><input type="text" style="width:80px;" name="precio_con_descuento[]" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control list_lineas" style="width:120px;" name="linea[]">
+						      			<select class="form-control list_categorias" name="categoria[]">
 							      			<option>-</option>
-							      			<?php print $linea; ?>
+							      			<?php print $categoria; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-select-class="list_lineas" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_categorias" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
 						      		</div>
 					      		</td>
-					      		<td>
-					      			<div class="input-group">
-						      			<select class="form-control list_formatos" style="width:100px;" name="formato[]">
-							      			<option>-</option>
-							      			<?php print $formato; ?>
-							      		</select>
-							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-select-class="list_formatos" data-title="Registrar Nuevo Formato" data-attribute-term-id="6" type="button">
-									        <i class="glyphicon glyphicon-plus"></i>
-									      </button>
-									    </div>
-						      		</div>
-					      		</td>
-					      		<td><input type="text" name="paginas[]" style="width:70px;" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_editoriales" name="editorial[]">
@@ -121,25 +89,70 @@
 						      		</div>
 					      		</td>
 					      		<td>
-					      			<div class="input-group">
-						      			<select class="form-control list_categorias" name="categoria[]">
+								<div class="input-group">
+						      			<select class="form-control list_idiomas" style="width:120px;" name="idioma[]">
 							      			<option>-</option>
-							      			<?php print $categoria; ?>
+							      			<?php print $idiomas; ?>
 							      		</select>
 							      		<div class="input-group-btn">
-									      <button class="btn btn-success add_attribute" data-select-class="list_categorias" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
+									      <button class="btn btn-success add_attribute" data-select-class="list_idiomas" data-title="Registrar Nuevo Idioma" data-attribute-term-id="2" type="button">
 									        <i class="glyphicon glyphicon-plus"></i>
 									      </button>
 									    </div>
 						      		</div>
+					      		</td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control list_lineas" style="width:120px;" name="linea[]">
+							      			<option>-</option>
+							      			<?php print $linea; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-select-class="list_lineas" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
+								<td><input type="text" name="isbn[]" style="width:110px;" class="form-control"></td>
+					      		<td><textarea name="titulo[]" class="form-control"></textarea></td>
+					      		<td>
+					      			<div class="input-group">
+						      			<select class="form-control list_formatos" style="width:100px;" name="formato[]">
+							      			<option>-</option>
+							      			<?php print $formato; ?>
+							      		</select>
+							      		<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-select-class="list_formatos" data-title="Registrar Nuevo Formato" data-attribute-term-id="6" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+						      		</div>
+					      		</td>
+					      		<td><input type="text" name="paginas[]" style="width:70px;" class="form-control"></td>
+					      		<td><textarea name="descripcion[]" class="form-control"></textarea></td>
+					      		<td><input type="text" style="width:70px;" name="precio[]" class="form-control"></td>
+					      		<td><input type="text" style="width:80px;" name="precio_con_descuento[]" class="form-control"></td>
+					      		<td><input type="text" style="width:80px;" name="stock_actual[]" class="form-control"></td>
+					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
+					      		<td>
+									<div class="input-group">
+										<select class="form-control list_codigos" style="width:100px;" name="codigo[]">
+							      			<option>-</option>
+							      			<?php print $codigo; ?>
+						      			</select>
+						      			<div class="input-group-btn">
+									      <button class="btn btn-success add_attribute" data-select-class="list_codigos" data-title="Registrar Nuevo Codigo" data-attribute-term-id="8" type="button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									      </button>
+									    </div>
+					      			</div>
 					      		</td>
 					      		<td><input type="text" name="peso[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="ancho[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="alto[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="espesor[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="file" name="imagen[]" /></td>
-					      		<td><input type="text" style="width:80px;" name="stock_actual[]" class="form-control"></td>
-					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control js-example-tokenizer list_autores" name="autores[][]" multiple="multiple">
@@ -153,8 +166,7 @@
 									</div>
 					      		</td>
 							</tr>
-						<?php } ?>	
-
+						<?php } ?>
 					</tbody>
 				</table>
 			<br />

@@ -10,19 +10,21 @@ use Automattic\WooCommerce\Client;
 global $woocommerce;
 
 $woocommerce = new Client(
-    'http://floripajoven.com', // Your store URL
-    'ck_8a46b95910f0313c01fa9ef404876b8a2fe83568', // Your consumer key
-    'cs_2192330c16128f54d4ba0c515a47c8cab37ea544', // Your consumer secret
+    'https://floripajoven.com', // Your store URL
+    'ck_a2b0cad06fd37965641a2a30b0186c62315974d3', // Your consumer key
+    'cs_c97b07ccca25ac388974aa07b83eca48e38f73a2', // Your consumer secret
     [
         'wp_api' => true, // Enable the WP REST API integration
-        'version' => 'wc/v2' // WooCommerce WP REST API version
+        'version' => 'wc/v2'
     ]
 );
 
 function getAttributeData($id = NULL){
 	global $woocommerce;
+
 	$data = $woocommerce->get('products/attributes/'.$id.'/terms');
 	$result = "";
+
 	for($i = 0; $i < count($data); $i++){
 		$result .= '<option value="'.$data[$i]->name.'">'.$data[$i]->name.'</option>';
 	}
