@@ -8,9 +8,9 @@ use Automattic\WooCommerce\Client;
 global $woocommerce;
 
 $woocommerce = new Client(
-    'http://floripajoven.com', // Your store URL
-    'ck_8a46b95910f0313c01fa9ef404876b8a2fe83568', // Your consumer key
-    'cs_2192330c16128f54d4ba0c515a47c8cab37ea544', // Your consumer secret
+    'https://floripajoven.com', // Your store URL
+    'ck_a2b0cad06fd37965641a2a30b0186c62315974d3', // Your consumer key
+    'cs_c97b07ccca25ac388974aa07b83eca48e38f73a2', // Your consumer secret
     [
         'wp_api' => true, // Enable the WP REST API integration
         'version' => 'wc/v2' // WooCommerce WP REST API version
@@ -59,13 +59,16 @@ switch ($operation) {
 			$ancho = $_POST['ancho'];
 			$alto = $_POST['alto'];
 			$autores = $_POST['autores'];
-			$idiomas = $_POST['idioma'];
+			$idioma = $_POST['idioma'];
+
+			$short_description = "<strong></trong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
 
 			$data = [
 				'name' => $name[$i],
 				'price' => $price[$i],
 				'regular_price' => $regular_price[$i],
 				'description' => $description[$i],
+
 				'status' => 'publish',
 				'weight' => $peso[$i],
 				'price' => $price[$i],
@@ -78,7 +81,7 @@ switch ($operation) {
 				'attributes' => array(
 					array(
 						'name' => 'codigo',
-						'visible' => true,
+						'visible' => false,
 						'options' => array($codigo[$i])
 					),
 					array(
@@ -114,7 +117,7 @@ switch ($operation) {
 					array(
 						'name' => 'idioma',
 						'visible' => true,
-						'options' => array($idiomas[$i])
+						'options' => array($idioma[$i])
 					),
 					array(
 						'name' => 'autores',
@@ -125,7 +128,6 @@ switch ($operation) {
 			];
 
 			$result = $woocommerce->post('products', $data);
-
 			$data = [];
 		}
 

@@ -23,9 +23,6 @@
 			<div class="col-lg-12">
 				<h1>Carga de Productos</h1>
 				<hr />
-				<button type="button" id="add_line" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Agregar Linea de Producto</button>
-				<br />
-				<br />
 				<table class="table table-bordered table-striped">
 					<thead>
 						<th>Categoria</th>
@@ -51,17 +48,8 @@
 					</thead>
 					<tbody id="load_lines">
 						<form id="form_product">
-						<?php 
-							$clone_class = "";
-							for($i = 0; $i < 10; $i++){ 
-
-							if($i == 9){
-								$clone_class = "class='for-clone'";
-							}
-
-							?>
-
-							<tr <?php print $clone_class; ?>>
+						<?php for($i = 0; $i < 2; $i++){ ?>
+							<tr>
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_categorias" name="categoria[]">
@@ -155,7 +143,7 @@
 					      		<td><input type="file" name="imagen[]" /></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control js-example-tokenizer list_autores" name="autores[][]" multiple="multiple">
+						      			<select class="form-control js-example-tokenizer list_autores" name="autores[]" multiple="multiple">
 										 <?php print $autores; ?>
 										</select>
 										<div class="input-group-btn">

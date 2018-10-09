@@ -5,12 +5,6 @@ $(document).ready(function(){
 	    tokenSeparators: [',', ' ']
 	});
 
-	$('#add_line').click(function(){
-
-		$( ".for-clone" ).clone().removeClass('for-clone').appendTo( "#load_lines" );
-
-	});
-
 	$(".add_attribute").click(function(){
 
 		var title = $(this).attr("data-title");
@@ -62,11 +56,8 @@ $(document).ready(function(){
 			console.log( response );
 
 			waitingDialog.hide();
-			
-			bootbox.alert("<h4>Productos Registrados con Exito!!</h4>");
 
-			$("select, input").value("");
-			$("textarea").text("");
+			bootbox.alert("<h4>Productos Registrados con Exito!!</h4>");
 
 		});
 
