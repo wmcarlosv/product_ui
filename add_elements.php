@@ -60,8 +60,7 @@ switch ($operation) {
 			$alto = $_POST['alto'];
 			$autores = $_POST['autores_'.$i];
 			$idioma = $_POST['idioma'];
-			$images = $_FILES['imagen_'.$i];
-
+			print_r($_FILES['imagen_'.$i]);
 			$short_description = "<strong>".implode(',',$autores)."</trong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
 
 			$data = [
@@ -81,7 +80,7 @@ switch ($operation) {
 				),
 				'images' => [
 					[
-						'src' => cargar_image($images['tmp_name']),
+						'src' => cargar_image($_FILES['imagen_'.$i]['tmp_name'], $_FILES['imagen_'.$i]['name']),
 						'position' => 0
 					]
 				],
@@ -151,10 +150,12 @@ switch ($operation) {
 }
 
 
-function cargar_image($url_image){
+function cargar_image($url_image, $name){
 
 	$file = file_get_contents($url_image);
+
 	$url = 'https://floripajoven.com/wp-json/wp/v2/media/';
+
 	$ch = curl_init();
 	$username = 'tolosaubik';
 	$password = 'Tute1981';
@@ -164,17 +165,20 @@ function cargar_image($url_image){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt( $ch, CURLOPT_POSTFIELDS, $file );
 	curl_setopt( $ch, CURLOPT_HTTPHEADER, [
-		'Content-Disposition: form-data; filename="producto.jpg"',
+		'Content-Disposition: form-data; filename="'.$name.'"',
 		'Authorization: Basic ' . base64_encode( $username . ':' . $password ),
 	] );
 
 	$result = json_decode(curl_exec( $ch ));
 
+
 	$result = (array)$result;
 
-	$guid = (array)$result['guid'];
+	$guid = (array)$result[0]->guid;
 
 	$image_url = $guid['rendered'];
+
+	print $image_url;
 
 	curl_close( $ch );
 
