@@ -80,7 +80,7 @@ switch ($operation) {
 				),
 				'images' => [
 					[
-						'src' => cargar_image($_FILES['imagen_'.$i]['tmp_name'], $_FILES['imagen_'.$i]['name']),
+						'src' => cargar_image($_FILES['imagen_'.$i]['tmp_name']),
 						'position' => 0
 					]
 				],
@@ -150,37 +150,29 @@ switch ($operation) {
 }
 
 
-function cargar_image($url_image, $name){
+function cargar_image($url_image){
 
 	$file = file_get_contents($url_image);
-
+	$uniquesavename = time().uniqid(rand());
 	$url = 'https://floripajoven.com/wp-json/wp/v2/media/';
-
 	$ch = curl_init();
 	$username = 'tolosaubik';
 	$password = 'Tute1981';
-
 	curl_setopt( $ch, CURLOPT_URL, $url );
 	curl_setopt( $ch, CURLOPT_POST, 1 );
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt( $ch, CURLOPT_POSTFIELDS, $file );
 	curl_setopt( $ch, CURLOPT_HTTPHEADER, [
-		'Content-Disposition: form-data; filename="'.$name.'"',
+		'Content-Disposition: form-data; filename="producto.jpg"',
 		'Authorization: Basic ' . base64_encode( $username . ':' . $password ),
 	] );
-
+	
 	$result = json_decode(curl_exec( $ch ));
-
-
 	$result = (array)$result;
-
 	$guid = (array)$result[0]->guid;
-
 	$image_url = $guid['rendered'];
 
 	print $image_url;
-
 	curl_close( $ch );
-
 	return $image_url;
 }
