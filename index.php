@@ -48,7 +48,7 @@
 					</thead>
 					<tbody id="load_lines">
 						<form id="form_product">
-						<?php for($i = 0; $i < 5; $i++){ ?>
+						<?php for($i = 0; $i < 2; $i++){ ?>
 							<tr>
 					      		<td>
 					      			<div class="input-group">
@@ -140,10 +140,10 @@
 					      		<td><input type="text" name="ancho[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="alto[]" style="width:70px;" class="form-control"></td>
 					      		<td><input type="text" name="espesor[]" style="width:70px;" class="form-control"></td>
-					      		<td><input type="file" name="imagen[]" /></td>
+					      		<td><input type="file" name="imagen_<?php print $i; ?>" /></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control js-example-tokenizer list_autores" name="autores[]" multiple="multiple">
+						      			<select class="form-control js-example-tokenizer list_autores" name="autores_<?php print $i; ?>[]" multiple="multiple">
 										 <?php print $autores; ?>
 										</select>
 										<div class="input-group-btn">
@@ -159,7 +159,8 @@
 				</table>
 			<br />
 			<input type="hidden" name="operation" value="add_product" />
-			<button type="button" id="add_products" class="btn btn-success">Guardar</button>
+			<!--<button type="button" id="add_products" class="btn btn-success">Guardar</button>-->
+			<button type="sumit" class="btn btn-success">Guardar</button>
 			</form>
 			</div>
 		</div>

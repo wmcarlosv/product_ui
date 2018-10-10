@@ -47,7 +47,7 @@ $(document).ready(function(){
 
 
 
-	$("#add_products").click(function(){
+	/*$("#add_products").click(function(){
 
 		waitingDialog.show('Registrado Productos...');
 
@@ -61,8 +61,38 @@ $(document).ready(function(){
 
 		});
 
-	});
+	});*/
 
+
+	$("#form_product").submit(function(event){
+		  waitingDialog.show('Registrado Productos...');
+		  //grab all form data  
+		  var formData = new FormData($(this)[0]);
+		  
+		  $.ajax({
+		    url: 'add_elements.php',
+		    type: 'POST',
+		    data: formData,
+		    async: false,
+		    cache: false,
+		    contentType: false,
+		    processData: false,
+		    beforeSend : function(){
+		    	waitingDialog.show('Registrado Productos...'); 
+		    },
+		    success: function ( response ) {
+
+		      	console.log( response );
+
+				waitingDialog.hide();
+
+				bootbox.alert("<h4>Productos Registrados con Exito!!</h4>");
+
+		    }
+		  });
+		 
+		  return false;
+	});
 
 
 });
