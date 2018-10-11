@@ -119,8 +119,8 @@
 					      		</td>
 					      		<td><input type="text" name="paginas[]" style="width:70px;" class="form-control"></td>
 					      		<td><textarea name="descripcion[]" class="form-control"></textarea></td>
-					      		<td><input type="text" style="width:70px;" name="precio[]" class="form-control"></td>
-					      		<td><input type="text" style="width:80px;" name="precio_con_descuento[]" class="form-control"></td>
+					      		<td><input type="text" style="width:70px;" name="precio_con_descuento[]" class="form-control"></td>
+					      		<td><input type="text" style="width:80px;" name="precio[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="stock_actual[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
 					      		<td>

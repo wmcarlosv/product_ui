@@ -61,7 +61,10 @@ switch ($operation) {
 			$autores = $_POST['autores_'.$i];
 			$idioma = $_POST['idioma'];
 			print_r($_FILES['imagen_'.$i]);
-			$short_description = "<strong>".implode(',',$autores)."</trong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
+
+			$autores = array_slice($autores, 0, 4);
+
+			$short_description = "<strong>".implode(',',$autores)."</strong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
 
 			$data = [
 				'name' => $name[$i],
@@ -166,7 +169,7 @@ function cargar_image($url_image){
 		'Content-Disposition: form-data; filename="producto.jpg"',
 		'Authorization: Basic ' . base64_encode( $username . ':' . $password ),
 	] );
-	
+
 	$result = json_decode(curl_exec( $ch ));
 	$result = (array)$result;
 	$guid = (array)$result[0]->guid;
