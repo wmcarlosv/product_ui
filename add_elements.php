@@ -70,14 +70,17 @@ switch ($operation) {
 				$short_description = "<strong>".implode(',',$autores)."</strong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
 				$cdo = explode("_", $codigo[$i]);
 
+				$sp = ($price[$i]*$cdo[1]);
+				$rp = ($regular_price[$i] * $cdo[1]);
+
 				$data = [
 					'name' => $name[$i],
 					//'price' => $price[$i],
 					'description' => $description[$i],
 					'status' => 'publish',
 					'weight' => $peso[$i],
-					'sale_price' => ($price[$i]*$cdo[1]),
-					'regular_price' => ($regular_price[$i]*$cdo[1]),
+					'sale_price' => (string)$sp,
+					'regular_price' => (string)$rp,
 					'short_description' => $short_description,
 					'dimensions' => array(
 						"length" => $espesor[$i],
