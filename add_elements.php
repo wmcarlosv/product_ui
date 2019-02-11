@@ -58,6 +58,7 @@ switch ($operation) {
 		$alto = $_POST['alto'];
 		$idioma = $_POST['idioma'];
 		$stock_actual = $_POST['stock_actual'];
+		$fecha_creacion = $_POST['fecha_creacion'];
 
 		for($i = 0; $i < count($_POST['titulo']); $i++){
 
@@ -82,6 +83,7 @@ switch ($operation) {
 					'sale_price' => (string)$sp,
 					'regular_price' => (string)$rp,
 					'short_description' => $short_description,
+					'date_created' => date('Y-m-d',strtotime($fecha_creacion[$i])),
 					'dimensions' => array(
 						"length" => $espesor[$i],
 					    "width" => $ancho[$i],

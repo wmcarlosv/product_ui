@@ -48,6 +48,7 @@
 						<th>Espesor</th>
 						<th>Imagen</th>
 						<th>Autores</th>
+						<th>Fecha Creacion</th>
 					</thead>
 					<tbody id="load_lines">
 						<form id="form_product">
@@ -149,6 +150,9 @@
 									      </button>
 									    </div>
 									</div>
+					      		</td>
+					      		<td>
+					      			<input type="date" class="form-control" name="fecha_creacion[]">
 					      		</td>
 							</tr>
 						<?php } ?>
