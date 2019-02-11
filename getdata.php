@@ -22,9 +22,8 @@ $woocommerce = new Client(
 function getAttributeData($id = NULL){
 	global $woocommerce;
 
-	$data = $woocommerce->get('products/attributes/'.$id.'/terms');
+	$data = $woocommerce->get('products/attributes/'.$id.'/terms/?per_page=100');
 	$result = "";
-
 	for($i = 0; $i < count($data); $i++){
 		if(isset($data[$i]->description) and !empty($data[$i]->description)){
 			$result .= '<option value="'.$data[$i]->name.'_'.$data[$i]->description.'">'.$data[$i]->name.'</option>';

@@ -13,6 +13,9 @@
 <html>
 <head>
 	<title>Carga de Productos</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/select2-4.0.6-rc.1/dist/css/select2.min.css"/>
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -23,7 +26,7 @@
 			<div class="col-lg-12">
 				<h1>Carga de Productos</h1>
 				<hr />
-				<table class="table table-bordered table-striped">
+				<table class="table table-bordered table-striped" width="100%">
 					<thead>
 						<th>Categoria</th>
 						<th>Editorial</th>
