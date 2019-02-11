@@ -76,8 +76,8 @@ switch ($operation) {
 					'description' => $description[$i],
 					'status' => 'publish',
 					'weight' => $peso[$i],
-					'sale_price' => $price[$i],
-					'regular_price' => $regular_price[$i],
+					'sale_price' => ($price[$i]*$cdo[1]),
+					'regular_price' => ($regular_price[$i]*$cdo[1]),
 					'short_description' => $short_description,
 					'dimensions' => array(
 						"length" => $espesor[$i],
@@ -150,11 +150,11 @@ switch ($operation) {
 					'meta_data' => array(
 						array(
 							'key' => 'cfwc_regular_cost_field',
-							'value' => ($regular_price[$i]*$cdo[1])
+							'value' => $regular_price[$i]
 						),
 						array(
 							'key' => 'cfwc_sales_cost_field',
-							'value' => ($price[$i]*$cdo[1])
+							'value' => $price[$i]
 						)
 					)
 				];
