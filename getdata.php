@@ -10,9 +10,9 @@ use Automattic\WooCommerce\Client;
 global $woocommerce;
 
 $woocommerce = new Client(
-    'https://floripajoven.com', // Your store URL
-    'ck_a2b0cad06fd37965641a2a30b0186c62315974d3', // Your consumer key
-    'cs_c97b07ccca25ac388974aa07b83eca48e38f73a2', // Your consumer secret
+    'https://ubikonline.com.ar', // Your store URL
+    'ck_34a0da021c4b4777499300c3e938c486014a4851', // Your consumer key
+    'cs_3f7a4e276ea0251b1697135fa2b0dac4510b933b', // Your consumer secret
     [
         'wp_api' => true, // Enable the WP REST API integration
         'version' => 'wc/v2'

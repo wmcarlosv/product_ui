@@ -53,7 +53,6 @@
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_categorias" name="categoria[]">
-							      			<option>-</option>
 							      			<?php print $categoria; ?>
 							      		</select>
 							      		<div class="input-group-btn">
@@ -66,7 +65,6 @@
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_editoriales" name="editorial[]">
-							      			<option>-</option>
 							      			<?php print $editorial; ?>
 							      		</select>
 							      		<div class="input-group-btn">
@@ -79,7 +77,6 @@
 					      		<td>
 								<div class="input-group">
 						      			<select class="form-control list_idiomas" style="width:120px;" name="idioma[]">
-							      			<option>-</option>
 							      			<?php print $idiomas; ?>
 							      		</select>
 							      		<div class="input-group-btn">
@@ -92,7 +89,6 @@
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_lineas" style="width:120px;" name="linea[]">
-							      			<option>-</option>
 							      			<?php print $linea; ?>
 							      		</select>
 							      		<div class="input-group-btn">
@@ -107,7 +103,6 @@
 					      		<td>
 					      			<div class="input-group">
 						      			<select class="form-control list_formatos" style="width:100px;" name="formato[]">
-							      			<option>-</option>
 							      			<?php print $formato; ?>
 							      		</select>
 							      		<div class="input-group-btn">
@@ -126,7 +121,6 @@
 					      		<td>
 									<div class="input-group">
 										<select class="form-control list_codigos" style="width:100px;" name="codigo[]">
-							      			<option>-</option>
 							      			<?php print $codigo; ?>
 						      			</select>
 						      			<div class="input-group-btn">
