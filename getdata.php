@@ -26,7 +26,12 @@ function getAttributeData($id = NULL){
 	$result = "";
 
 	for($i = 0; $i < count($data); $i++){
-		$result .= '<option value="'.$data[$i]->name.'">'.$data[$i]->name.'</option>';
+		if(isset($data[$i]->description) and !empty($data[$i]->description)){
+			$result .= '<option value="'.$data[$i]->name.'_'.$data[$i]->description.'">'.$data[$i]->name.'</option>';
+		}else{
+			$result .= '<option value="'.$data[$i]->name.'">'.$data[$i]->name.'</option>';
+		}
+		
 	}
 
 	return $result;

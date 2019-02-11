@@ -68,6 +68,7 @@ switch ($operation) {
 				$autores = array_slice($autores, 0, 4);
 
 				$short_description = "<strong>".implode(',',$autores)."</strong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
+				$cdo = explode("_", $codigo[$i]);
 
 				$data = [
 					'name' => $name[$i],
@@ -93,7 +94,7 @@ switch ($operation) {
 						array(
 							'id' => 8,
 							'name' => 'codigo',
-							'options' => array($codigo[$i])
+							'options' => array($cdo[0])
 						),
 						array(
 							'id' => 2,
@@ -149,11 +150,11 @@ switch ($operation) {
 					'meta_data' => array(
 						array(
 							'key' => 'cfwc_regular_cost_field',
-							'value' => $regular_price[$i]
+							'value' => ($regular_price[$i]*$cdo[1])
 						),
 						array(
 							'key' => 'cfwc_sales_cost_field',
-							'value' => $price[$i]
+							'value' => ($price[$i]*$cdo[1])
 						)
 					)
 				];
