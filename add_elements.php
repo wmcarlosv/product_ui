@@ -57,6 +57,7 @@ switch ($operation) {
 		$ancho = $_POST['ancho'];
 		$alto = $_POST['alto'];
 		$idioma = $_POST['idioma'];
+		$stock_actual = $_POST['stock_actual'];
 
 		for($i = 0; $i < count($_POST['titulo']); $i++){
 
@@ -141,6 +142,18 @@ switch ($operation) {
 							'name' => 'autores',
 							'visible' => true,
 							'options' => $autores
+						)
+					),
+					'manage_stock' => true,
+					'stock_quantity' => $stock_actual[$i],
+					'meta_data' => array(
+						array(
+							'key' => 'cfwc_regular_cost_field',
+							'value' => $regular_price[$i]
+						),
+						array(
+							'key' => 'cfwc_sales_cost_field',
+							'value' => $price[$i]
 						)
 					)
 				];

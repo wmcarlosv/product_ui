@@ -37,7 +37,7 @@
 						<th>Precio</th>
 						<th>Precio Rebajado</th>
 						<th>Stock Actual</th>
-						<th>Stock Deseado</th>
+						<!--<th>Stock Deseado</th>-->
 						<th>Codigo</th>
 						<th>Peso</th>
 						<th>Ancho</th>
@@ -117,7 +117,7 @@
 					      		<td><input type="text" style="width:70px;" name="precio_con_descuento[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="precio[]" class="form-control"></td>
 					      		<td><input type="text" style="width:80px;" name="stock_actual[]" class="form-control"></td>
-					      		<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>
+					      		<!--<td><input type="text" style="width:80px;" name="stock_requerido[]" class="form-control"></td>-->
 					      		<td>
 									<div class="input-group">
 										<select class="form-control list_codigos" style="width:100px;" name="codigo[]">
