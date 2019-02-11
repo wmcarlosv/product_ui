@@ -70,13 +70,12 @@ switch ($operation) {
 
 				$data = [
 					'name' => $name[$i],
-					'price' => $price[$i],
+					//'price' => $price[$i],
 					'description' => $description[$i],
 					'status' => 'publish',
 					'weight' => $peso[$i],
-					'price' => $price[$i],
+					'sale_price' => $price[$i],
 					'regular_price' => $regular_price[$i],
-					'sale_price' => $regular_price[$i],
 					'short_description' => $short_description,
 					'dimensions' => array(
 						"length" => $espesor[$i],
