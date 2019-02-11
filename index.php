@@ -48,7 +48,7 @@
 					</thead>
 					<tbody id="load_lines">
 						<form id="form_product">
-						<?php for($i = 0; $i < 2; $i++){ ?>
+						<?php for($i = 0; $i < 5; $i++){ ?>
 							<tr>
 					      		<td>
 					      			<div class="input-group">
