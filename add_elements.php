@@ -17,7 +17,7 @@ $woocommerce = new Client(
     ]
 );
 
-$operation = $_POST['operation'];
+$operation = $_REQUEST['operation'];
 //Terms Data
 $id = isset($_POST['term_id']) ? $_POST['term_id'] : NULL ;
 $name = isset($_POST['name']) ? $_POST['name'] : NULL ;
@@ -170,7 +170,6 @@ switch ($operation) {
 		}
 
 	break;
-
 }
 
 function cargar_image($image){

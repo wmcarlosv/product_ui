@@ -2,11 +2,11 @@
 
 	include 'getdata.php';
 	$codigo = getAttributeData(8);
-	$linea = getAttributeData(2);
+	//$linea = getAttributeData(2);
 	$formato = getAttributeData(6);
-	$editorial = getAttributeData(3);
+	//$editorial = getAttributeData(3);
 	$categoria = getAttributeData(9);
-	$autores = getAttributeData(7);
+	//$autores = getAttributeData(7);
 	$idiomas = getAttributeData(5);
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/select2-4.0.6-rc.1/dist/css/select2.min.css"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 </head>
 <body>
@@ -68,8 +68,8 @@
 					      		</td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control list_editoriales" name="editorial[]">
-							      			<?php print $editorial; ?>
+						      			<select class="form-control itemEditoriales list_editoriales" name="editorial[]">
+							      			<!--<?php print $editorial; ?>-->
 							      		</select>
 							      		<div class="input-group-btn">
 									      <button class="btn btn-success add_attribute" data-select-class="list_editoriales" data-title="Registrar Nueva Editorial" data-attribute-term-id="3" type="button">
@@ -92,8 +92,8 @@
 					      		</td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control list_lineas" style="width:120px;" name="linea[]">
-							      			<?php print $linea; ?>
+						      			<select class="form-control itemLineas list_lineas" style="width:120px;" name="linea[]">
+							      			<!--<?php print $linea; ?>-->
 							      		</select>
 							      		<div class="input-group-btn">
 									      <button class="btn btn-success add_attribute" data-select-class="list_lineas" data-title="Registrar Nueva Linea" data-attribute-term-id="2" type="button">
@@ -141,8 +141,8 @@
 					      		<td><input type="file" name="imagen_<?php print $i; ?>" /></td>
 					      		<td>
 					      			<div class="input-group">
-						      			<select class="form-control js-example-tokenizer list_autores" name="autores_<?php print $i; ?>[]" multiple="multiple">
-										 <?php print $autores; ?>
+						      			<select class="form-control itemAutores list_autores" name="autores_<?php print $i; ?>[]" multiple="multiple">
+										 <!--<?php print $autores; ?>-->
 										</select>
 										<div class="input-group-btn">
 									      <button class="btn btn-success add_attribute" data-select-class="list_autores" data-title="Registrar Nuevo Autor" data-attribute-term-id="7" type="button">
@@ -194,9 +194,59 @@
 
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/select2-4.0.6-rc.1/dist/js/select2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootbox.min.js"></script>
 	<script type="text/javascript" src="assets/js/preload.js"></script>
 	<script type="text/javascript" src="assets/js/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$('select.itemAutores').select2({
+			  	minimumInputLength: 2,
+			    ajax: {
+			        url: 'ajax_autores.php',
+			        dataType: 'json',
+			        delay:250,
+			        processResults : function(data){
+			        	return {
+			        		results : data
+			        	};
+			        },
+			        cache : true
+			    }
+			});
+
+			$('select.itemLineas').select2({
+			  	minimumInputLength: 2,
+			    ajax: {
+			        url: 'ajax_lineas.php',
+			        dataType: 'json',
+			        delay:250,
+			        processResults : function(data){
+			        	return {
+			        		results : data
+			        	};
+			        },
+			        cache : true
+			    }
+			});
+
+			$('select.itemEditoriales').select2({
+			  	minimumInputLength: 2,
+			    ajax: {
+			        url: 'ajax_editoriales.php',
+			        dataType: 'json',
+			        delay:250,
+			        processResults : function(data){
+			        	return {
+			        		results : data
+			        	};
+			        },
+			        cache : true
+			    }
+			});
+
+		});
+	</script>
 </body>
 </html>
