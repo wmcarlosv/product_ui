@@ -74,6 +74,14 @@ switch ($operation) {
 				$sp = ($price[$i]*$cdo[1]);
 				$rp = ($regular_price[$i] * $cdo[1]);
 
+				if($sp == 0){
+					$sp = '';
+				}
+
+				if($rp == 0){
+					$rp = '';
+				}
+
 				$data = [
 					'name' => $name[$i],
 					//'price' => $price[$i],
