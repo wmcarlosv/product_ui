@@ -1,4 +1,5 @@
 <?php
+	set_time_limit(0);
 	include 'getdata.php';
 	$codigo = getAttributeData(8);
 	//$linea = getAttributeData(2);
@@ -175,6 +176,7 @@
 			    <table class="table table-striped table-bordered data-table">
 			    	<thead>
 			    		<th>ID</th>
+			    		<th>Editorial</th>
 			    		<th>Nombre</th>
 			    		<th>Inventario</th>
 			    		<th>Precio Normal</th>
@@ -189,6 +191,15 @@
 			    		?>
 			    		<tr>
 			    			<td><?=$product->id?></td>
+			    			<td>
+			    				<?php
+			    					foreach($product->attributes as $attr){
+			    						if($attr->id == 3){
+			    							echo $attr->options[0];
+			    						}
+			    					}
+			    				?>
+			    			</td>
 			    			<td><?=$product->name?></td>
 			    			<?php if($product->manage_stock): ?>
 			    				<td><?=$product->stock_quantity?></td>
@@ -207,7 +218,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Modal -->
 	<div id="myModal" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
@@ -318,16 +328,6 @@
 
     		$('table.data-table').DataTable();
 
-    		$("button.modal-product").click(function(){
-    			var data = $(this).attr("data-product").split("$");
-
-    			$("#product_name").val(data[1]);
-    			$("#product_id").val(data[0]);
-    			$("#inventario").val(data[2]);
-
-    			$("#myModalProduct").modal("show");
-    		});
-
     		$("button.save_product").click(function(){
     			var product_id = $("#product_id").val();
     			var inventory = $("#inventario").val();
@@ -342,6 +342,16 @@
     				}
     			});
     		});
+		});
+
+		$(document).on('click','button.modal-product', function(){
+
+			var data = $(this).attr("data-product").split("$");
+			$("#product_name").val(data[1]);
+			$("#product_id").val(data[0]);
+			$("#inventario").val(data[2]);
+			$("#myModalProduct").modal("show");
+
 		});
 	</script>
 </body>
