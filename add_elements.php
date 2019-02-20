@@ -178,6 +178,20 @@ switch ($operation) {
 		}
 
 	break;
+	case 'add_inventory':
+		global $woocommerce;
+		$product_id = $_POST['product_id'];
+		$inventory = $_POST['inventory'];
+
+		$data = array(
+			'stock_quantity' => $inventory
+		);
+
+		$woocommerce->put('products/'.$product_id, $data);
+
+		print json_encode(['updated' => 'yes']);
+
+	break;
 }
 
 function cargar_image($image){
