@@ -5,7 +5,7 @@
 	//$linea = getAttributeData(2);
 	$formato = getAttributeData(6);
 	//$editorial = getAttributeData(3);
-	$categoria = getAttributeData(9);
+	//$categoria = getAttributeData(9);
 	//$autores = getAttributeData(7);
 	$idiomas = getAttributeData(5);
 ?>
@@ -63,8 +63,8 @@
 								<tr>
 						      		<td>
 						      			<div class="input-group">
-							      			<select class="form-control list_categorias" name="categoria[]">
-								      			<?php print $categoria; ?>
+							      			<select class="form-control itemCategorias list_categorias" name="categoria[]">
+								      			<!--<?php print $categoria; ?>-->
 								      		</select>
 								      		<div class="input-group-btn">
 										      <button class="btn btn-success add_attribute" data-select-class="list_categorias" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
@@ -315,6 +315,21 @@
 			  	minimumInputLength: 2,
 			    ajax: {
 			        url: 'ajax_editoriales.php',
+			        dataType: 'json',
+			        delay:250,
+			        processResults : function(data){
+			        	return {
+			        		results : data
+			        	};
+			        },
+			        cache : true
+			    }
+			});
+
+			$('select.itemCategorias').select2({
+			  	minimumInputLength: 2,
+			    ajax: {
+			        url: 'ajax_categorias.php',
 			        dataType: 'json',
 			        delay:250,
 			        processResults : function(data){

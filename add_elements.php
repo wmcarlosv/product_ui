@@ -66,7 +66,7 @@ switch ($operation) {
 
 				$autores = $_POST['autores_'.$i];
 				$image = $_FILES['imagen_'.$i];
-				$autores = array_slice($autores, 0, 4);
+				$autores = array_slice($autores, 0, count($autores));
 
 				$short_description = "<strong>".implode(',',$autores)."</strong><br />".$editorial[$i].", ".$formato[$i].",".$idioma[$i];
 				$cdo = explode("_", $codigo[$i]);
@@ -103,6 +103,9 @@ switch ($operation) {
 							'position' => 0
 						]
 					],
+					'categories' => array(
+						array('id' => $categoria[$i])
+					),
 					'attributes' => array(
 						array(
 							'id' => 8,
@@ -127,12 +130,12 @@ switch ($operation) {
 							'visible' => true,
 							'options' => array($editorial[$i])
 						),
-						array(
+						/*array(
 							'id' => 9,
 							'name' => 'categoria',
 							'visible' => true,
 							'options' => array($categoria[$i])
-						),
+						),*/
 						array(
 							'id' => 1,
 							'name' => 'isbn',
