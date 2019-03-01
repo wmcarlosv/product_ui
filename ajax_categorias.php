@@ -23,7 +23,7 @@ $data = $woocommerce->get('products/categories/?search='.$term."&per_page=100");
 $json = [];
 
 for($i=0;$i<count($data);$i++){
-	$json[] = ['id'=>$data[$i]->name, 'text'=>$data[$i]->name];
+	$json[] = ['id'=>$data[$i]->id, 'text'=>$data[$i]->name];
 }
 
 print json_encode($json);

@@ -64,7 +64,6 @@
 						      		<td>
 						      			<div class="input-group">
 							      			<select class="form-control itemCategorias list_categorias" name="categoria[]">
-								      			<!--<?php print $categoria; ?>-->
 								      		</select>
 								      		<div class="input-group-btn">
 										      <button class="btn btn-success add_attribute" data-select-class="list_categorias" data-title="Registrar Nueva Categoria" data-attribute-term-id="9" type="button">
@@ -186,7 +185,7 @@
 			    	<tbody>
 			    		<?php 
 			    			global $woocommerce;
-							$products = $woocommerce->get('products/?per_page=100');
+							$products = []; //$woocommerce->get('products/?per_page=100');
 							foreach($products as $product):
 			    		?>
 			    		<tr>

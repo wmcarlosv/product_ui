@@ -35,3 +35,15 @@ function getAttributeData($id = NULL){
 
 	return $result;
 }
+
+/*function getCategories(){
+	global $woocommerce;
+	$data = $woocommerce->get('products/categories');
+	$result = "";
+
+	for($i = 0; $i < count($data); $i++){
+		$result .= '<option value="'.$data[$i]->name.'">'.$data[$i]->name.'</option>';
+	}
+
+	return $result;
+}*/
